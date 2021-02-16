@@ -10,10 +10,10 @@ config['dataset']['target_root'] = './data/data_proc'
 config['dataset']['cities'] = ['Moscow']
 
 # logging
-config['log_folder'] = './runs/graphnets/'
+config['log_folder'] = './runs/GATnet/'
 
 # number of tries for random search
-config['nb_of_models'] = 100
+config['nb_of_models'] = 1
 config['device_num'] = 0
 config['debug'] = False
 
@@ -42,4 +42,4 @@ config['lr_gamma'] = 0.1
 # early stopping
 config['patience'] = 2
 config['num_epochs'] = 10
-config['print_every_step'] = 10
+config['print_every_step'] = 100

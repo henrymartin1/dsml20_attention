@@ -61,6 +61,7 @@ def plot_performance_nbparams(ax, nb_params_dict, norm=False):
             ax.scatter(np.log10(value[0]), value[1] / baseline_dict[city], label=key, marker=marker, s=300, cmap='jet')
         else:
             ax.scatter(np.log10(value[0]), value[1], label=key, marker=marker, s=300, cmap='jet')
+        print('\t', key, value[0], value[1])
 
     return ax
 
@@ -82,6 +83,7 @@ if __name__ == '__main__':
     fig, ax = plt.subplots(3, 1, figsize=(20, 12), sharex=True)
 
     for ix, city in enumerate(['Moscow', 'Berlin', 'Istanbul']):
+        print(city)
         ax[ix] = plot_performance_nbparams(ax[ix], inv_resultdict[city], norm=False)
         ax[ix].set_title(city)
 
@@ -96,9 +98,9 @@ if __name__ == '__main__':
     fig.text(-0.01, 0.5, 'Mean Squared Error', va='center', rotation='vertical')
     #    plt.ylabel('MSE', fontdict=font)
     handles, labels = ax.get_legend_handles_labels()
-    fig.legend(handles, labels, loc=3, bbox_to_anchor=(0.1, -0.01), ncol=5, frameon=False,
+    fig.legend(handles, labels, loc=3, bbox_to_anchor=(0.1, -0.11), ncol=5, frameon=False,
                fontsize=20)
-    figbox = matplotlib.transforms.Bbox([[-0.4, -0.75], [20, 11.8]])
+    figbox = matplotlib.transforms.Bbox([[-0.4, -1.2], [20, 11.8]])
     plt.tight_layout()
     plt.savefig(os.path.join('.', 'output', 'performance_nb_params.pdf'), bbox_inches=figbox)
     plt.close()

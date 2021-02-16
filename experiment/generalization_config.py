@@ -36,6 +36,7 @@ config['debug'] = False
 # modeltuple[3]: Name of the network in `models/graph_models.py` (only for graph models)
 
 config['model_tuple_list'] = [
+    ('GAT-res-net', os.path.join('.', 'runs', 'GATnet', 'resd2_GAT'), True, 'Graph_resnet_GAT'),
     ('KipfNet nh=16', os.path.join('.', 'runs', 'PMLR_nets', 'kipfnet16'), True, 'kipfnet'),
     ('KipfNet nh=128', os.path.join('.', 'runs', 'PMLR_nets', 'kipfnet128'), True, 'kipfnet'),
     ('Graph-ResNet', os.path.join('.', 'runs', 'PMLR_nets', 'graphresnet1'), True, 'Graph_resnet'),

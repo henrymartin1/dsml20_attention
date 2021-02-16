@@ -97,7 +97,7 @@ def get_graphdata_obj(inputs, edge_index, y):
 
 
 def train(model, train_loader, optim, device, writer, \
-          epoch, globaliter, adj, nn_ixs, edge_index, batch_size, print_every_step=1, coords=None):
+          epoch, globaliter, adj, nn_ixs, edge_index, batch_size, print_every_step=10, coords=None):
     model.train()
     running_loss = 0.0
     n_batches = len(train_loader)
@@ -137,6 +137,7 @@ def train(model, train_loader, optim, device, writer, \
         optim.zero_grad()
 
         # Forward pass, backward pass, optimize
+        #print(graphdata.device, graphdata.x.device, graphdata.edge_index.device, model.device)
         prediction = model(graphdata)
 
         # crop the output for comparing with true Y

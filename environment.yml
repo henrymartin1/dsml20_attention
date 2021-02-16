@@ -1,4 +1,4 @@
-name: pmlrgraphs20
+name: dsml20
 channels:
   - pytorch
   - conda-forge
@@ -15,18 +15,18 @@ dependencies:
   - pytest
   - jupyter
   - networkx
-  - pytorch 
-  - torchvision
-  #- cudatoolkit=10.1
-  - cpuonly # replace cpuonly with your cuda version for GPU support
+  - pytorch=1.6.0
+  - torchvision=0.7.0
+  - cudatoolkit=10.2
+  #- cpuonly # replace cpuonly with your cuda version for GPU support
   - future
   - pillow
   - tensorboard
   - seaborn
   - pip: 
     - h5py
-    - torch-cluster
+    - torch-scatter==latest+cu102 -f https://pytorch-geometric.com/whl/torch-1.6.0.html
+    - torch-sparse==latest+cu102 -f https://pytorch-geometric.com/whl/torch-1.6.0.html
+    - torch-cluster==latest+cu102 -f https://pytorch-geometric.com/whl/torch-1.6.0.html
+    - torch-spline-conv==latest+cu102 -f https://pytorch-geometric.com/whl/torch-1.6.0.html
     - torch-geometric
-    - torch-scatter
-    - torch-sparse
-    - torch-spline-conv

@@ -17,7 +17,7 @@ from utils.videoloader import trafic4cast_dataset
 
 
 from models.unet import UNet
-from models.graph_models import KipfNet_orig, KipfNet, KipfNetd2, Graph_resnet
+from models.graph_models import KipfNet_orig, KipfNet, KipfNetd2, Graph_resnet, Graph_resnet_GAT
 
 
 
@@ -120,6 +120,13 @@ if __name__ == "__main__":
                                              num_classes=9, **model_config['model']['Graph_resnet']).to(device)
                         model.load_state_dict(torch.load(os.path.join(model_path, 'checkpoint.pt'),
                                                          map_location=device))
+                        
+                    elif graph_model_name == 'Graph_resnet_GAT':
+                        model = Graph_resnet_GAT(num_features=n_features,
+                                             num_classes=9, nh=20).to(device)
+                        model.load_state_dict(torch.load(os.path.join(model_path, 'checkpoint.pt'),
+                                                         map_location=device))
+
 
                     mask = None
                     val_loss = validate(model=model, val_loader=val_loader, device=device,
